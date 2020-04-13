@@ -1,0 +1,9 @@
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\bin\Debug\netcoreapp3.1\LocalChow.Persistence.deps.json
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\bin\Debug\netcoreapp3.1\LocalChow.Persistence.dll
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\bin\Debug\netcoreapp3.1\LocalChow.Persistence.pdb
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\obj\Debug\netcoreapp3.1\LocalChow.Persistence.AssemblyInfoInputs.cache
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\obj\Debug\netcoreapp3.1\LocalChow.Persistence.AssemblyInfo.cs
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\obj\Debug\netcoreapp3.1\LocalChow.Persistence.dll
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\obj\Debug\netcoreapp3.1\LocalChow.Persistence.pdb
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\obj\Debug\netcoreapp3.1\LocalChow.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\rabbit\source\repos\LocalChow.Api\LocalChow.Persistence\obj\Debug\netcoreapp3.1\LocalChow.Persistence.csprojAssemblyReference.cache
