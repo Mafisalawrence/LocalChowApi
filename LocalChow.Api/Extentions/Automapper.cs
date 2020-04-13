@@ -13,6 +13,7 @@ namespace LocalChow.Api.Extentions
         public Automapper()
         {
             CreateMap<StoreDto, Store>().ReverseMap();
+            CreateMap<UserDto, User>().ReverseMap();
         }
     }
 }

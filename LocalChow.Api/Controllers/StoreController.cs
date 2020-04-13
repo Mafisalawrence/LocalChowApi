@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LocalChow.Api.Controllers
 {
-    [Route("api/store")]
+    [Route("api/[Controller]/[action]")]
     [ApiController]
     public class StoreController : ControllerBase
     {
@@ -30,13 +30,14 @@ namespace LocalChow.Api.Controllers
         {
             try
             {
-                var stores = _repositoryWrapper.Store.FindAll();
+                var stores = _repositoryWrapper.Store.FindAll().ToList();
                 if (stores == null || !stores.Any())
                 {
                     _logger.LogError("No stores found in db");
                     return NotFound();
                 }
-                return Ok(stores);
+                var storeDto = _mapper.Map<IEnumerable<StoreDto>>(stores);
+                return Ok(storeDto);
             }
             catch (Exception ex)
             {
@@ -56,7 +57,8 @@ namespace LocalChow.Api.Controllers
                     _logger.LogError($"No menu found in db with id:{id}");
                     return NotFound($"No menu found with id:{id}");
                 }
-                return Ok(store);
+                var storeDto = _mapper.Map<StoreDto>(store);
+                return Ok(storeDto);
             }
             catch (Exception ex)
             {
@@ -84,10 +86,10 @@ namespace LocalChow.Api.Controllers
                     return NotFound($"User with Id:{storeRequest.UserID} not found");
                 }
                 var store = _mapper.Map<Store>(storeRequest);
-                store.User = user;
+                store.UserID = storeRequest.UserID;
                 _repositoryWrapper.Store.Create(store);
                 _repositoryWrapper.Save();
-                return Ok(store);
+                return Ok(store.StoreID);
             }
             catch (Exception ex)
             {
@@ -115,7 +117,6 @@ namespace LocalChow.Api.Controllers
                     return NotFound($"No store found with id:{id}");
                 }
                 var store = _mapper.Map<Store>(storeRequest);
-                store.User = dbStore.User;
                 store.StoreID = id;
                 _repositoryWrapper.Store.Update(store);
                 _repositoryWrapper.Save();

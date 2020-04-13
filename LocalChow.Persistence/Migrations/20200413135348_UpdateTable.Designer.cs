@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalChow.Persistence.Migrations
 {
     [DbContext(typeof(LocalChowDbContext))]
-    [Migration("20200413121435_UpdateTables")]
-    partial class UpdateTables
+    [Migration("20200413135348_UpdateTable")]
+    partial class UpdateTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,7 +123,7 @@ namespace LocalChow.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("StoreID");
@@ -186,7 +186,9 @@ namespace LocalChow.Persistence.Migrations
                 {
                     b.HasOne("LocalChow.Persistence.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

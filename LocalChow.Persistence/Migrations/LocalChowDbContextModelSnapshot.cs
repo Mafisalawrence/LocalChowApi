@@ -121,7 +121,7 @@ namespace LocalChow.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserID")
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("StoreID");
@@ -184,7 +184,9 @@ namespace LocalChow.Persistence.Migrations
                 {
                     b.HasOne("LocalChow.Persistence.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

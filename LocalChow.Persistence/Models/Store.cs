@@ -15,6 +15,7 @@ namespace LocalChow.Persistence.Models
         public string Description { get; set; }
         public float Longitude { get; set; }
         public float Latitude { get; set; }
+        public int UserID { get; set; }
         public User User { get; set; }
     }
 }
