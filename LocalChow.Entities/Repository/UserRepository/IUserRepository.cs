@@ -8,5 +8,6 @@ namespace LocalChow.Domain.Repository.UserRepository
 {
     public interface IUserRepository: IRepositoryBase<User>
     {
+        User GetUserByID(int id);
     }
 }

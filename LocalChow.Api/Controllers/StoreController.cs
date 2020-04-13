@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using LocalChow.Domain.DTO;
 using LocalChow.Domain.Repository;
 using LocalChow.Persistence.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +17,12 @@ namespace LocalChow.Api.Controllers
     {
         private readonly ILogger<StoreController> _logger;
         private readonly IRepositoryWrapper _repositoryWrapper;
-        public StoreController(IRepositoryWrapper repositoryWrapper, ILogger<StoreController> logger)
+        private readonly IMapper _mapper;
+        public StoreController(IRepositoryWrapper repositoryWrapper, ILogger<StoreController> logger, IMapper mapper)
         {
             _repositoryWrapper = repositoryWrapper;
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -62,11 +66,11 @@ namespace LocalChow.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateStore([FromBody] Store store)
+        public IActionResult CreateStore([FromBody] StoreDto storeRequest)
         {
             try
             {
-                if (store == null)
+                if (storeRequest == null)
                 {
                     return BadRequest("Store object is null");
                 }
@@ -74,9 +78,16 @@ namespace LocalChow.Api.Controllers
                 {
                     return BadRequest("Invalid model object");
                 }
+                var user = _repositoryWrapper.User.GetUserByID(storeRequest.UserID);
+                if (user == null)
+                {
+                    return NotFound($"User with Id:{storeRequest.UserID} not found");
+                }
+                var store = _mapper.Map<Store>(storeRequest);
+                store.User = user;
                 _repositoryWrapper.Store.Create(store);
                 _repositoryWrapper.Save();
-                return CreatedAtRoute("CreateStore", store);
+                return Ok(store);
             }
             catch (Exception ex)
             {
@@ -86,11 +97,11 @@ namespace LocalChow.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateStore(int id, [FromBody] Store store)
+        public IActionResult UpdateStore(int id, [FromBody] StoreDto storeRequest)
         {
             try
             {
-                if (store == null)
+                if (storeRequest == null)
                 {
                     return BadRequest("Store object is null");
                 }
@@ -103,6 +114,9 @@ namespace LocalChow.Api.Controllers
                 {
                     return NotFound($"No store found with id:{id}");
                 }
+                var store = _mapper.Map<Store>(storeRequest);
+                store.User = dbStore.User;
+                store.StoreID = id;
                 _repositoryWrapper.Store.Update(store);
                 _repositoryWrapper.Save();
                 return Ok();
