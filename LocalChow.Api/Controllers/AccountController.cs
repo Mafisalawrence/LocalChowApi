@@ -119,7 +119,7 @@ namespace LocalChow.Api.Controllers
                 var tokeOptions = new JwtSecurityToken(
                     issuer: authenticationConfig.ValidIssuer,
                     audience: authenticationConfig.ValidAudience,
-                    claims: new List<Claim>(),
+                    claims: identity.Claims,
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: signinCredentials
                 );
