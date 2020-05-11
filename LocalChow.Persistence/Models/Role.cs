@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace LocalChow.Persistence.Models
 {
-    public class User : IdentityUser<Guid>
+    public class Role : IdentityRole<Guid>
     {
-        //additional customer / provider information goes here
+        public string Description { get; set; }
     }
 }

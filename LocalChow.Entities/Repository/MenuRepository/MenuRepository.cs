@@ -17,7 +17,7 @@ namespace LocalChow.Domain.Repository.MenuRepository
         {
             return FindAll().ToList();
         }
-        public Menu GetMenuById(int id)
+        public Menu GetMenuById(Guid id)
         {
             return FindByCondition(x => x.MenuID == id).FirstOrDefault();
         }

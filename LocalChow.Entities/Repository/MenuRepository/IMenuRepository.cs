@@ -9,6 +9,6 @@ namespace LocalChow.Domain.Repository.MenuRepository
     public interface IMenuRepository: IRepositoryBase<Menu>
     {
         IEnumerable<Menu> GetAllMenu();
-        Menu GetMenuById(int id);
+        Menu GetMenuById(Guid id);
     }
 }

@@ -18,7 +18,7 @@ namespace LocalChow.Domain.Repository.StoreRepository
             return FindAll().ToList();
         }
 
-        public Store GetStoreById(int id)
+        public Store GetStoreById(Guid id)
         {
             return FindByCondition(x => x.StoreID == id).FirstOrDefault();
         }

@@ -16,6 +16,6 @@ namespace LocalChow.Domain.DTO
         [Required]
         public float Latitude { get; set; }
         [Required]
-        public int UserID { get; set; } //TODO : Set to required after testing
+        public Guid UserID { get; set; } //TODO : Set to required after testing
     }
 }

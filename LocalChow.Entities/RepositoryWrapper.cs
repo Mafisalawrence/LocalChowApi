@@ -2,6 +2,7 @@
 using LocalChow.Domain.Repository.MenuItemRepository;
 using LocalChow.Domain.Repository.MenuRepository;
 using LocalChow.Domain.Repository.OrderRepository;
+using LocalChow.Domain.Repository.RoleRepository;
 using LocalChow.Domain.Repository.StoreRepository;
 using LocalChow.Domain.Repository.UserRepository;
 using LocalChow.Persistence.Models;
@@ -19,6 +20,7 @@ namespace LocalChow.Domain
         private  IOrderRepository _orderRepository;
         private  IUserRepository _userRepository;
         private  IMenuRepository _menuRepository;
+        private IRoleRepository _roleRepository;
 
         public RepositoryWrapper(LocalChowDbContext context) => _context = context;
 
@@ -79,6 +81,17 @@ namespace LocalChow.Domain
                     _userRepository = new UserRepository(_context);
                 }
                 return _userRepository;
+            }
+        }
+        public IRoleRepository Role
+        {
+            get
+            {
+                if (_roleRepository == null)
+                {
+                    _roleRepository = new RoleRepository(_context);
+                }
+                return _roleRepository;
             }
         }
 

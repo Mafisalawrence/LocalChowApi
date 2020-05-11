@@ -47,7 +47,7 @@ namespace LocalChow.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetStore(int id)
+        public IActionResult GetStore(Guid id)
         {
             try
             {
@@ -80,13 +80,13 @@ namespace LocalChow.Api.Controllers
                 {
                     return BadRequest("Invalid model object");
                 }
-                var user = _repositoryWrapper.User.GetUserByID(storeRequest.UserID);
-                if (user == null)
-                {
-                    return NotFound($"User with Id:{storeRequest.UserID} not found");
-                }
+                //var user = _repositoryWrapper.User.GetUserByID(storeRequest.UserID);
+                //if (user == null)
+                //{
+                //    return NotFound($"User with Id:{storeRequest.UserID} not found");
+                //}
                 var store = _mapper.Map<Store>(storeRequest);
-                store.UserID = storeRequest.UserID;
+                //store.UserID = storeRequest.UserID;
                 _repositoryWrapper.Store.Create(store);
                 _repositoryWrapper.Save();
                 return Ok(store.StoreID);
@@ -99,7 +99,7 @@ namespace LocalChow.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateStore(int id, [FromBody] StoreDto storeRequest)
+        public IActionResult UpdateStore(Guid id, [FromBody] StoreDto storeRequest)
         {
             try
             {

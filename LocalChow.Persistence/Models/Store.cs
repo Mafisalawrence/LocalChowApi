@@ -10,12 +10,12 @@ namespace LocalChow.Persistence.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int StoreID { get; set; }
+        public Guid StoreID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public float Longitude { get; set; }
         public float Latitude { get; set; }
-        public int UserID { get; set; }
+        public Guid UserID { get; set; }
         public User User { get; set; }
     }
 }

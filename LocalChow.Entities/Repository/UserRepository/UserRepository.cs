@@ -13,9 +13,9 @@ namespace LocalChow.Domain.Repository.UserRepository
         {
         }
 
-        public User GetUserByID(int id)
-        {
-            return FindByCondition(x => x.UserID == id).FirstOrDefault();
-        }
+        //public User GetUserByID(Guid id)
+        //{
+        //    return FindByCondition(x => x.Id == id).FirstOrDefault();
+        //}
     }
 }

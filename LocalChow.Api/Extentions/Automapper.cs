@@ -14,6 +14,7 @@ namespace LocalChow.Api.Extentions
         {
             CreateMap<StoreDto, Store>().ReverseMap();
             CreateMap<UserDto, User>().ReverseMap();
+            CreateMap<RoleDto, Role>().ReverseMap();
         }
     }
 }

@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LocalChow.Domain.Repository.UserRepository
+namespace LocalChow.Domain.Repository.RoleRepository
 {
-    public interface IUserRepository: IRepositoryBase<User>
+    public interface IRoleRepository : IRepositoryBase<Role>
     {
-       // User GetUserByID(Guid id);
+        Role GetRoleByName(string name);
     }
 }

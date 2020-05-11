@@ -9,6 +9,6 @@ namespace LocalChow.Domain.Repository.OrderRepository
     public interface IOrderRepository : IRepositoryBase<Order>
     {
         IEnumerable<Order> GetAllOrders();
-        Order GetOrderById(int id);
+        Order GetOrderById(Guid id);
     }
 }

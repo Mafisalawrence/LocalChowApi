@@ -42,7 +42,7 @@ namespace LocalChow.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetMenu(int id)
+        public IActionResult GetMenu(Guid id)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace LocalChow.Api.Controllers
         }
         
         [HttpPut("{id}")]
-        public IActionResult UpdateMenu(int id, [FromBody] Menu menu)
+        public IActionResult UpdateMenu(Guid id, [FromBody] Menu menu)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace LocalChow.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteMenu(int id)
+        public IActionResult DeleteMenu(Guid id)
         {
             try
             {

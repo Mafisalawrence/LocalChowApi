@@ -18,7 +18,7 @@ namespace LocalChow.Domain.Repository.OrderRepository
             return FindAll();
         }
 
-        public Order GetOrderById(int id)
+        public Order GetOrderById(Guid id)
         {
             return FindByCondition(x => x.OrderID == id).FirstOrDefault();
         }

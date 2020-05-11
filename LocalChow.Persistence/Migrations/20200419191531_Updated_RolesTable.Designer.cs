@@ -4,14 +4,16 @@ using LocalChow.Persistence.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocalChow.Persistence.Migrations
 {
     [DbContext(typeof(LocalChowDbContext))]
-    partial class LocalChowDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200419191531_Updated_RolesTable")]
+    partial class Updated_RolesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

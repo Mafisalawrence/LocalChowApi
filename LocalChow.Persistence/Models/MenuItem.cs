@@ -10,7 +10,7 @@ namespace LocalChow.Persistence.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MenuItemId { get; set; }
+        public Guid MenuItemId { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
         public string Description { get; set; }

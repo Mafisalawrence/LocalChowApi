@@ -42,7 +42,7 @@ namespace LocalChow.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetOrder(int id)
+        public IActionResult GetOrder(Guid id)
         {
             try
             {

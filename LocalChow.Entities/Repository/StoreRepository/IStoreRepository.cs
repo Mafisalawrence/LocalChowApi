@@ -9,6 +9,6 @@ namespace LocalChow.Domain.Repository.StoreRepository
     public interface IStoreRepository: IRepositoryBase<Store>
     {
         IEnumerable<Store> GetAllStore();
-        Store GetStoreById(int id);
+        Store GetStoreById(Guid id);
     }
 }

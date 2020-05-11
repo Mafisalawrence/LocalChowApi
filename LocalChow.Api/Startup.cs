@@ -30,6 +30,7 @@ namespace LocalChow.Api
         {
             services.RegisterServices();
             services.ConfigureDbConnection(Configuration);
+            services.ConfigureJWT(Configuration);
             services.AddSwaggerDocument();
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -42,9 +43,11 @@ namespace LocalChow.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseOpenApi();
             app.UseSwaggerUi3();
             app.UseEndpoints(endpoints =>
