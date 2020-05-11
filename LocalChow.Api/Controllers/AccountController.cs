@@ -39,13 +39,6 @@ namespace LocalChow.Api.Controllers
             _configuration = configuration;
         }
 
-        [HttpGet]
-        [Authorize]
-        public IActionResult Test()
-        {
-            return Ok("Authentication successful");
-        }
-
         [HttpPost("{role}")]
         public async Task<IActionResult> Register(string role, [FromBody] UserDto userDto)
         {
